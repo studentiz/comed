@@ -1,4 +1,4 @@
-![CoMed logo](https://github.com/studentiz/comed/docs/logo.png)
+![CoMed logo](https://github.com/studentiz/comed/blob/main/docs/logo.png)
 # CoMed: A Framework for Drug Co-Medication Risk Analysis
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
