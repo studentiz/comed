@@ -2,6 +2,7 @@
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
 [![Documentation Status](https://readthedocs.io/en/latest/?badge=latest)](https://docs.readthedocs.io/en/latest/?badge=latest)
+---
 CoMed is a comprehensive framework for analyzing drug co-medication risks using Chain-of-Thought (CoT) reasoning with large language models. It automates the process of searching medical literature, analyzing drug interactions, and generating detailed risk assessment reports for healthcare professionals and researchers.
 ## 📋 Table of Contents
 - [Features](#-features)
