@@ -23,7 +23,6 @@ CoMed is a comprehensive framework for analyzing drug co-medication risks using 
 | 🧠 **Chain-of-Thought Analysis** | Use LLM-based structured reasoning to identify true drug combination mentions, filtering out papers that merely mention both drugs separately |
 | ⚠️ **Comprehensive Risk Assessment** | Evaluate multiple dimensions of drug interaction risks including side effects, efficacy, indications, patient selection, and management |
 | 📊 **Interactive Reporting** | Generate interactive HTML reports with rich information and direct links to source literature |
-| 📈 **Scanpy-like API** | Intuitive, chainable API inspired by Scanpy, making analysis workflows easy to build and customize |
 | 🔄 **Incremental Analysis** | Support for adding drugs incrementally to existing analyses, saving computational resources |
 | 📁 **Data Persistence** | Save intermediate results at each step, allowing for workflow interruption and resumption |
 ## 📥 Installation
