@@ -17,8 +17,8 @@ pip install -e ./comed/comed
 ```
 ## Dependencies
 CoMed requires the following dependencies:
-- pandas (>=2.2.3)
-- numpy (>=2.2.3)
+- pandas (>=2.2.2)
+- numpy (>=1.26.0)
 - biopython (>=1.85)
 - tqdm (>=4.67.1)
 - openai (>=1.65.1)

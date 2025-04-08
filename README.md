@@ -41,8 +41,8 @@ pip install -e ./comed/comed
 ### Dependencies
 | Dependency | Version | Purpose |
 |------------|---------|---------|
-| pandas | >=2.2.3 | Data manipulation and analysis |
-| numpy | >=2.2.3 | Numerical computing |
+| pandas | >=2.2.2 | Data manipulation and analysis |
+| numpy | >=1.26.0 | Numerical computing |
 | biopython | >=1.85 | Interface with biological databases including PubMed |
 | tqdm | >=4.67.1 | Progress bar visualization |
 | openai | >=1.65.1 | OpenAI API client |

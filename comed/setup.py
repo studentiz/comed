@@ -2,11 +2,11 @@ from setuptools import setup, find_packages
 
 setup(
     name="comed",
-    version="1.0.5",
+    version="1.0.6",
     packages=find_packages(),
     install_requires=[
-        "pandas>=2.2.3",
-        "numpy>=2.2.3",
+        "pandas>=2.2.2",
+        "numpy>=1.26.0",
         "biopython>=1.85",
         "tqdm>=4.67.1",
         "openai>=1.65.1",
