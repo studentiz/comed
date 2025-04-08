@@ -299,7 +299,7 @@ This ensures that only papers truly discussing drug combinations are included in
 For papers with confirmed drug combinations, CoMed analyzes five key dimensions:
 | Dimension | Analysis Focus |
 |-----------|---------------|
-| **Risks & Side Effects** | Adverse events, toxicities, and complications |
+| **Adverse events & Side Effects** | Adverse events, toxicities, and complications |
 | **Efficacy & Safety** | Therapeutic outcomes and general safety profile |
 | **Indications & Contraindications** | Clinical scenarios where combination is appropriate or contraindicated |
 | **Patient Selection** | Patient characteristics affecting risk-benefit profile |
@@ -334,11 +334,10 @@ com.set_config({
 ### LLM Model Comparison
 | Model | Compatibility | Quality | Speed | Cost Efficiency |
 |-------|---------------|---------|-------|----------------|
-| GPT-4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| GPT-4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 | Claude 3 Opus | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
 | Qwen Max | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| GPT-3.5 Turbo | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Llama 3 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Llama 3 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 ### Customizing Analysis Parameters
 ```python
 import comed
@@ -364,53 +363,8 @@ We welcome contributions to CoMed! Here's how you can help:
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-### Development Setup
-```bash
-# Clone repository
-git clone https://github.com/username/comed.git
-cd comed
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-# Install in development mode
-pip install -e ".[dev]"
-# Run tests
-pytest
-```
-## 📜 License
-This project is licensed under the BSD License (2-Clause) - see the [LICENSE](LICENSE) file for details.
-```
-Copyright (c) 2023, CoMed Developers
-All rights reserved.
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-```
-## 📝 Citation
-If you use CoMed in your research, please cite:
-```bibtex
-@software{comed2023,
-  author = {Your Name},
-  title = {CoMed: A Framework for Analyzing Co-Medication Risks using Chain-of-Thought Reasoning},
-  year = {2023},
-  url = {https://github.com/username/comed},
-  version = {0.1.0}
-}
-```
+
+
 ## ❓ FAQ
 ### Q: How many drugs can I analyze at once?
 **A:** CoMed can analyze any number of drugs, but the number of combinations grows quickly (n*(n-1)/2). For larger analyses, consider breaking it into smaller drug groups to manage computational resources. A typical analysis of 5 drugs (10 combinations) takes approximately 1-2 hours depending on the LLM used.
