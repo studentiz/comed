@@ -36,8 +36,7 @@ pip install comed
 ### From Source (Latest Development Version)
 ```bash
 git clone https://github.com/studentiz/comed.git
-cd ./comed/comed
-pip install -e .
+pip install -e ./comed/comed
 ```
 ### Dependencies
 | Dependency | Version | Purpose |

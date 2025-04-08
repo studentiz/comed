@@ -1,3 +1,38 @@
+Metadata-Version: 2.2
+Name: comed
+Version: 1.0.5
+Summary: CoMed: A framework for analyzing co-medication risks using Chain-of-Thought reasoning.
+Home-page: https://github.com/studentiz/comed
+Author: Studentiz
+Author-email: studentiz@live.com
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: Python :: 3.12
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Operating System :: OS Independent
+Classifier: Topic :: Scientific/Engineering :: Medical Science Apps.
+Classifier: Topic :: Scientific/Engineering :: Bio-Informatics
+Requires-Python: >=3.8
+Description-Content-Type: text/markdown
+Requires-Dist: pandas>=2.2.3
+Requires-Dist: numpy>=2.2.3
+Requires-Dist: biopython>=1.85
+Requires-Dist: tqdm>=4.67.1
+Requires-Dist: openai>=1.65.1
+Requires-Dist: requests>=2.32.3
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: requires-dist
+Dynamic: requires-python
+Dynamic: summary
+
 # CoMed
 CoMed is a Python package for analyzing co-medication risks using Chain-of-Thought (CoT) reasoning with large language models. It provides a comprehensive framework for retrieving scientific literature, identifying drug combinations, analyzing potential risks, and generating detailed reports.
 ## Features
