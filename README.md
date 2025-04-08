@@ -1,8 +1,6 @@
-# CoMed: A Framework for Drug Co-Medication Risk Analysis
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
-[![Documentation Status](https://readthedocs.io/en/latest/?badge=latest)](https://docs.readthedocs.io/en/latest/?badge=latest)
----
+# CoMed: A Framework for Drug Co-Medication Risk Analysis
 CoMed is a comprehensive framework for analyzing drug co-medication risks using Chain-of-Thought (CoT) reasoning with large language models. It automates the process of searching medical literature, analyzing drug interactions, and generating detailed risk assessment reports for healthcare professionals and researchers.
 ## 📋 Table of Contents
 - [Features](#-features)
@@ -45,12 +43,12 @@ pip install -e .
 ### Dependencies
 | Dependency | Version | Purpose |
 |------------|---------|---------|
-| pandas | >=2.0.0 | Data manipulation and analysis |
-| numpy | >=1.24.0 | Numerical computing |
-| biopython | >=1.81 | Interface with biological databases including PubMed |
-| tqdm | >=4.65.0 | Progress bar visualization |
-| openai | >=1.0.0 | OpenAI API client |
-| requests | >=2.31.0 | HTTP requests |
+| pandas | >=2.2.3 | Data manipulation and analysis |
+| numpy | >=2.2.3 | Numerical computing |
+| biopython | >=1.85 | Interface with biological databases including PubMed |
+| tqdm | >=4.67.1 | Progress bar visualization |
+| openai | >=1.65.1 | OpenAI API client |
+| requests | >=2.32.3 | HTTP requests |
 | typing-extensions | >=4.7.0 | Type hinting extensions |
 ## 🚀 Quick Start
 ### Configuration
@@ -102,7 +100,7 @@ import comed
 com = comed.CoMedData(["simvastatin", "amlodipine"])
 # Configure for specific LLM (QianWen example)
 com.set_config({
-    'model_name': 'qwen2.5-32b-instruct',
+    'model_name': 'qwen-max',
     'api_base': 'https://dashscope.aliyuncs.com/compatible-mode/v1',
     'api_key': 'your-dashscope-api-key'
 })
@@ -147,7 +145,7 @@ CoMed generates a comprehensive HTML report with multiple sections:
 |---------|---------|
 | **Meta Information** | Analysis timestamp, LLM model used, drug combinations analyzed, paper counts |
 | **Drug Combination Sections** | Detailed analysis for each drug pair |
-| **Risk Assessment** | Overall risk evaluation with evidence |
+| **Overall Assessment** | Overall risk evaluation with evidence |
 | **Side Effects** | Potential adverse events when drugs are combined |
 | **Efficacy & Safety** | How the combination affects therapeutic outcomes |
 | **Indications & Contraindications** | When the combination is appropriate or should be avoided |
