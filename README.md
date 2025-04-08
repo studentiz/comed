@@ -358,7 +358,7 @@ com.generate_report()
 ```
 ## 👥 Contributing: Join Our Mission to Improve Medication Safety
 CoMed isn't just a code repository—it's a clinical initiative aimed at making medication co-administration safer for patients worldwide. Just as healthcare requires a multidisciplinary team, our project thrives on diverse contributions!
-## Why Your Contribution Matters
+## 👥 Why Your Contribution Matters
 Every improvement to CoMed has the potential to help healthcare professionals make more informed decisions about drug combinations. Whether you're a clinician with domain expertise, a developer with coding skills, or a researcher with methodological insights, your contributions directly translate to better medication safety tools.
 ## ❓ FAQ
 ### Q: How many drugs can I analyze at once?
