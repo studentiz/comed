@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="comed",
-    version="1.0.2",
+    version="1.0.4",
     packages=find_packages(),
     install_requires=[
         "pandas>=2.2.3",
@@ -20,8 +20,15 @@ setup(
     url="https://github.com/studentiz/comed",
     classifiers=[
         "Programming Language :: Python :: 3",
+        "Programming Language :: Python :: 3.8",
+        "Programming Language :: Python :: 3.9",
+        "Programming Language :: Python :: 3.10",
+        "Programming Language :: Python :: 3.11",
+        "Programming Language :: Python :: 3.12",
         "License :: OSI Approved :: BSD License",
         "Operating System :: OS Independent",
+        "Topic :: Scientific/Engineering :: Medical Science Apps.",
+        "Topic :: Scientific/Engineering :: Bio-Informatics",
     ],
-    python_requires=">=3.12.9",
+    python_requires=">=3.8",  # Compatible with Python 3.8 and above
 )
