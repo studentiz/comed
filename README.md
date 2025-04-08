@@ -55,7 +55,7 @@ pip install -e .
 import os
 import comed
 # Configure your LLM API credentials
-os.environ["MODEL_NAME"] = "gpt-4"  # or any compatible model
+os.environ["MODEL_NAME"] = "gpt-4o"  # or any compatible model
 os.environ["API_BASE"] = "https://api.openai.com/v1"
 os.environ["API_KEY"] = "your-api-key"
 ```
@@ -194,7 +194,7 @@ Functions to load and save analysis data.
 ### Environment Variables
 | Variable | Description | Default | Example |
 |----------|-------------|---------|---------|
-| `MODEL_NAME` | LLM model to use | None | `"gpt-4"` |
+| `MODEL_NAME` | LLM model to use | None | `"gpt-4o"` |
 | `API_BASE` | Base URL for API | None | `"https://api.openai.com/v1"` |
 | `API_KEY` | API authentication key | None | `"sk-..."` |
 | `LOG_DIR` | Directory for log files | `"logs"` | `"my_logs"` |
@@ -334,7 +334,7 @@ com.set_config({
 ### LLM Model Comparison
 | Model | Compatibility | Quality | Speed | Cost Efficiency |
 |-------|---------------|---------|-------|----------------|
-| GPT-4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
+| GPT-4o | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 | Claude 3 Opus | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
 | Qwen Max | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
 | Llama 3 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
@@ -369,7 +369,7 @@ We welcome contributions to CoMed! Here's how you can help:
 ### Q: How many drugs can I analyze at once?
 **A:** CoMed can analyze any number of drugs, but the number of combinations grows quickly (n*(n-1)/2). For larger analyses, consider breaking it into smaller drug groups to manage computational resources. A typical analysis of 5 drugs (10 combinations) takes approximately 1-2 hours depending on the LLM used.
 ### Q: Which LLMs work best with CoMed?
-**A:** CoMed performs best with more advanced models like GPT-4, Claude 3 Opus, or Qwen Max, but will work with any model that can handle chain-of-thought reasoning. More capable models produce higher quality medical analyses and are recommended for clinical research purposes.
+**A:** CoMed performs best with more advanced models like GPT-4o, Claude 3 Opus, or Qwen Max, but will work with any model that can handle chain-of-thought reasoning. More capable models produce higher quality medical analyses and are recommended for clinical research purposes.
 ### Q: How can I interpret the risk levels in the report?
 **A:** CoMed summarizes findings from the literature but does not assign specific risk levels. The reports include the context and evidence from medical papers, which should be evaluated by healthcare professionals based on:
 - Frequency of reported adverse events
