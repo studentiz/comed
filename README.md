@@ -356,15 +356,10 @@ com.analyze_associations(max_retries=50, retry_delay=10)
 com.analyze_risks()
 com.generate_report()
 ```
-## 👥 Contributing
-We welcome contributions to CoMed! Here's how you can help:
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-
+## 👥 Contributing: Join Our Mission to Improve Medication Safety
+CoMed isn't just a code repository—it's a clinical initiative aimed at making medication co-administration safer for patients worldwide. Just as healthcare requires a multidisciplinary team, our project thrives on diverse contributions!
+## Why Your Contribution Matters
+Every improvement to CoMed has the potential to help healthcare professionals make more informed decisions about drug combinations. Whether you're a clinician with domain expertise, a developer with coding skills, or a researcher with methodological insights, your contributions directly translate to better medication safety tools.
 ## ❓ FAQ
 ### Q: How many drugs can I analyze at once?
 **A:** CoMed can analyze any number of drugs, but the number of combinations grows quickly (n*(n-1)/2). For larger analyses, consider breaking it into smaller drug groups to manage computational resources. A typical analysis of 5 drugs (10 combinations) takes approximately 1-2 hours depending on the LLM used.
