@@ -35,7 +35,7 @@ pip install comed
 ```
 ### From Source (Latest Development Version)
 ```bash
-git clone https://github.com/username/comed.git
+git clone https://github.com/studentiz/comed.git
 cd comed
 pip install -e .
 ```
