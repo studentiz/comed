@@ -13,7 +13,7 @@ pip install comed
 Or install from source:
 ```bash
 git clone https://github.com/studentiz/comed.git
-cd comed
+cd ./comed/comed
 pip install -e .
 ```
 ## Dependencies
