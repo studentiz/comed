@@ -10,11 +10,6 @@ Install from PyPI:
 ```bash
 pip install comed
 ```
-Or install from source:
-```bash
-git clone https://github.com/studentiz/comed.git
-pip install -e ./comed/comed
-```
 ## Dependencies
 CoMed requires the following dependencies:
 - pandas (>=2.2.2)

@@ -33,11 +33,6 @@ CoMed is a comprehensive framework for analyzing drug co-medication risks using 
 ```bash
 pip install comed
 ```
-### From Source (Latest Development Version)
-```bash
-git clone https://github.com/studentiz/comed.git
-pip install -e ./comed/comed
-```
 ### Dependencies
 | Dependency | Version | Purpose |
 |------------|---------|---------|
