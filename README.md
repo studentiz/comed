@@ -1,8 +1,6 @@
-# CoMed: A Framework for Drug Co-Medication Risk Analysis
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
-[![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
-[![Documentation Status](https://readthedocs.io/en/latest/?badge=latest)](https://docs.readthedocs.io/en/latest/?badge=latest)
----
+[![PyPI version](https://badge.fury.io/py/comed.svg?icon=si%3Apython)](https://badge.fury.io/py/comed)
+# CoMed: A Framework for Drug Co-Medication Risk Analysis
 CoMed is a comprehensive framework for analyzing drug co-medication risks using Chain-of-Thought (CoT) reasoning with large language models. It automates the process of searching medical literature, analyzing drug interactions, and generating detailed risk assessment reports for healthcare professionals and researchers.
 ## 📋 Table of Contents
 - [Features](#-features)
@@ -25,7 +23,6 @@ CoMed is a comprehensive framework for analyzing drug co-medication risks using 
 | 🧠 **Chain-of-Thought Analysis** | Use LLM-based structured reasoning to identify true drug combination mentions, filtering out papers that merely mention both drugs separately |
 | ⚠️ **Comprehensive Risk Assessment** | Evaluate multiple dimensions of drug interaction risks including side effects, efficacy, indications, patient selection, and management |
 | 📊 **Interactive Reporting** | Generate interactive HTML reports with rich information and direct links to source literature |
-| 📈 **Scanpy-like API** | Intuitive, chainable API inspired by Scanpy, making analysis workflows easy to build and customize |
 | 🔄 **Incremental Analysis** | Support for adding drugs incrementally to existing analyses, saving computational resources |
 | 📁 **Data Persistence** | Save intermediate results at each step, allowing for workflow interruption and resumption |
 ## 📥 Installation
@@ -38,19 +35,19 @@ pip install comed
 ```
 ### From Source (Latest Development Version)
 ```bash
-git clone https://github.com/username/comed.git
+git clone https://github.com/studentiz/comed.git
 cd comed
 pip install -e .
 ```
 ### Dependencies
 | Dependency | Version | Purpose |
 |------------|---------|---------|
-| pandas | >=2.0.0 | Data manipulation and analysis |
-| numpy | >=1.24.0 | Numerical computing |
-| biopython | >=1.81 | Interface with biological databases including PubMed |
-| tqdm | >=4.65.0 | Progress bar visualization |
-| openai | >=1.0.0 | OpenAI API client |
-| requests | >=2.31.0 | HTTP requests |
+| pandas | >=2.2.3 | Data manipulation and analysis |
+| numpy | >=2.2.3 | Numerical computing |
+| biopython | >=1.85 | Interface with biological databases including PubMed |
+| tqdm | >=4.67.1 | Progress bar visualization |
+| openai | >=1.65.1 | OpenAI API client |
+| requests | >=2.32.3 | HTTP requests |
 | typing-extensions | >=4.7.0 | Type hinting extensions |
 ## 🚀 Quick Start
 ### Configuration
@@ -58,7 +55,7 @@ pip install -e .
 import os
 import comed
 # Configure your LLM API credentials
-os.environ["MODEL_NAME"] = "gpt-4"  # or any compatible model
+os.environ["MODEL_NAME"] = "gpt-4o"  # or any compatible model
 os.environ["API_BASE"] = "https://api.openai.com/v1"
 os.environ["API_KEY"] = "your-api-key"
 ```
@@ -102,7 +99,7 @@ import comed
 com = comed.CoMedData(["simvastatin", "amlodipine"])
 # Configure for specific LLM (QianWen example)
 com.set_config({
-    'model_name': 'qwen2.5-32b-instruct',
+    'model_name': 'qwen-max',
     'api_base': 'https://dashscope.aliyuncs.com/compatible-mode/v1',
     'api_key': 'your-dashscope-api-key'
 })
@@ -147,7 +144,7 @@ CoMed generates a comprehensive HTML report with multiple sections:
 |---------|---------|
 | **Meta Information** | Analysis timestamp, LLM model used, drug combinations analyzed, paper counts |
 | **Drug Combination Sections** | Detailed analysis for each drug pair |
-| **Risk Assessment** | Overall risk evaluation with evidence |
+| **Overall Assessment** | Overall risk evaluation with evidence |
 | **Side Effects** | Potential adverse events when drugs are combined |
 | **Efficacy & Safety** | How the combination affects therapeutic outcomes |
 | **Indications & Contraindications** | When the combination is appropriate or should be avoided |
@@ -197,7 +194,7 @@ Functions to load and save analysis data.
 ### Environment Variables
 | Variable | Description | Default | Example |
 |----------|-------------|---------|---------|
-| `MODEL_NAME` | LLM model to use | None | `"gpt-4"` |
+| `MODEL_NAME` | LLM model to use | None | `"gpt-4o"` |
 | `API_BASE` | Base URL for API | None | `"https://api.openai.com/v1"` |
 | `API_KEY` | API authentication key | None | `"sk-..."` |
 | `LOG_DIR` | Directory for log files | `"logs"` | `"my_logs"` |
@@ -302,7 +299,7 @@ This ensures that only papers truly discussing drug combinations are included in
 For papers with confirmed drug combinations, CoMed analyzes five key dimensions:
 | Dimension | Analysis Focus |
 |-----------|---------------|
-| **Risks & Side Effects** | Adverse events, toxicities, and complications |
+| **Adverse events & Side Effects** | Adverse events, toxicities, and complications |
 | **Efficacy & Safety** | Therapeutic outcomes and general safety profile |
 | **Indications & Contraindications** | Clinical scenarios where combination is appropriate or contraindicated |
 | **Patient Selection** | Patient characteristics affecting risk-benefit profile |
@@ -337,11 +334,10 @@ com.set_config({
 ### LLM Model Comparison
 | Model | Compatibility | Quality | Speed | Cost Efficiency |
 |-------|---------------|---------|-------|----------------|
-| GPT-4 | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
+| GPT-4o | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 | Claude 3 Opus | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐ |
 | Qwen Max | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐ |
-| GPT-3.5 Turbo | ⭐⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
-| Llama 3 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ | ⭐⭐⭐⭐⭐ |
+| Llama 3 | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐ | ⭐⭐⭐⭐ |
 ### Customizing Analysis Parameters
 ```python
 import comed
@@ -367,58 +363,13 @@ We welcome contributions to CoMed! Here's how you can help:
 3. Commit your changes (`git commit -m 'Add some amazing feature'`)
 4. Push to the branch (`git push origin feature/amazing-feature`)
 5. Open a Pull Request
-### Development Setup
-```bash
-# Clone repository
-git clone https://github.com/username/comed.git
-cd comed
-# Create virtual environment
-python -m venv venv
-source venv/bin/activate  # On Windows: venv\Scripts\activate
-# Install in development mode
-pip install -e ".[dev]"
-# Run tests
-pytest
-```
-## 📜 License
-This project is licensed under the BSD License (2-Clause) - see the [LICENSE](LICENSE) file for details.
-```
-Copyright (c) 2023, CoMed Developers
-All rights reserved.
-Redistribution and use in source and binary forms, with or without
-modification, are permitted provided that the following conditions are met:
-1. Redistributions of source code must retain the above copyright notice, this
-   list of conditions and the following disclaimer.
-2. Redistributions in binary form must reproduce the above copyright notice,
-   this list of conditions and the following disclaimer in the documentation
-   and/or other materials provided with the distribution.
-THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND
-ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED
-WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE
-DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR
-ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES
-(INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES;
-LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND
-ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT
-(INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS
-SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-```
-## 📝 Citation
-If you use CoMed in your research, please cite:
-```bibtex
-@software{comed2023,
-  author = {Your Name},
-  title = {CoMed: A Framework for Analyzing Co-Medication Risks using Chain-of-Thought Reasoning},
-  year = {2023},
-  url = {https://github.com/username/comed},
-  version = {0.1.0}
-}
-```
+
+
 ## ❓ FAQ
 ### Q: How many drugs can I analyze at once?
 **A:** CoMed can analyze any number of drugs, but the number of combinations grows quickly (n*(n-1)/2). For larger analyses, consider breaking it into smaller drug groups to manage computational resources. A typical analysis of 5 drugs (10 combinations) takes approximately 1-2 hours depending on the LLM used.
 ### Q: Which LLMs work best with CoMed?
-**A:** CoMed performs best with more advanced models like GPT-4, Claude 3 Opus, or Qwen Max, but will work with any model that can handle chain-of-thought reasoning. More capable models produce higher quality medical analyses and are recommended for clinical research purposes.
+**A:** CoMed performs best with more advanced models like GPT-4o, Claude 3 Opus, or Qwen Max, but will work with any model that can handle chain-of-thought reasoning. More capable models produce higher quality medical analyses and are recommended for clinical research purposes.
 ### Q: How can I interpret the risk levels in the report?
 **A:** CoMed summarizes findings from the literature but does not assign specific risk levels. The reports include the context and evidence from medical papers, which should be evaluated by healthcare professionals based on:
 - Frequency of reported adverse events
