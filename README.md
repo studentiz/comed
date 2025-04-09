@@ -12,9 +12,6 @@ CoMed is a comprehensive framework for analyzing drug co-medication risks using 
 - [Example Use Cases](#-example-use-cases)
 - [How It Works](#-how-it-works)
 - [Customization](#-customization)
-- [Contributing](#-contributing)
-- [License](#-license)
-- [Citation](#-citation)
 - [FAQ](#-faq)
 ## ✨ Features
 | Feature | Description |
