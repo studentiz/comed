@@ -3,6 +3,19 @@
 [![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
 [![PyPI version](https://badge.fury.io/py/comed.svg?icon=si%3Apython)](https://badge.fury.io/py/comed)
 
+## ⚠️ **IMPORTANT DISCLAIMER**
+
+> **🚨 CRITICAL NOTICE: This tool is designed for research and educational purposes only.**
+> 
+> **CoMed is NOT intended for direct clinical use and should NOT be used as the sole basis for clinical decision-making.**
+> 
+> - ✅ **Intended Use**: Research, education, and clinical decision support for healthcare professionals
+> - ❌ **NOT for**: Direct patient care, automated clinical decisions, or replacing professional medical judgment
+> - 🔬 **Target Users**: Clinical researchers, healthcare professionals, and medical students
+> - ⚖️ **Responsibility**: Always consult qualified healthcare professionals for clinical decisions
+> 
+> **By using this software, you acknowledge that it is for research and educational purposes only.**
+
 ## 🎯 Overview
 
 CoMed is a comprehensive framework for analyzing drug co-medication risks using a modular architecture that supports RAG (Retrieval-Augmented Generation), CoT (Chain-of-Thought reasoning), and Multi-Agent systems. This version addresses reviewer feedback by providing clear component separation, ablation study support, and true multi-agent collaboration.

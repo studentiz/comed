@@ -14,7 +14,7 @@ setup(
     ],
     author="Studentiz",
     author_email="studentiz@live.com",
-    description="CoMed: A framework for analyzing co-medication risks using Chain-of-Thought reasoning.",
+    description="CoMed: A framework for analyzing co-medication risks using Chain-of-Thought reasoning. FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY - NOT FOR CLINICAL USE.",
     long_description=open("README.md").read(),
     long_description_content_type="text/markdown",
     url="https://github.com/studentiz/comed",
