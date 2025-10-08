@@ -1,6 +1,6 @@
 Metadata-Version: 2.2
 Name: comed
-Version: 2.1.1
+Version: 2.1.3
 Summary: CoMed: A framework for analyzing co-medication risks using Chain-of-Thought reasoning. FOR RESEARCH AND EDUCATIONAL PURPOSES ONLY - NOT FOR CLINICAL USE.
 Home-page: https://github.com/studentiz/comed
 Author: Studentiz
@@ -455,24 +455,6 @@ pip install -r requirements-dev.txt
 ## 📄 License
 
 This project is licensed under the BSD-2-Clause License. See [LICENSE](LICENSE) file for details.
-
-## 🚀 Version History
-
-### v2.1.1 (Current)
-- Package optimization and documentation updates
-- Improved error handling and logging
-- Enhanced configuration management
-
-### v2.1.0
-- Multi-agent collaboration system
-- Advanced conflict resolution
-- Consensus building mechanisms
-- Enhanced agent communication
-
-### v2.0.1
-- Modular architecture
-- RAG and CoT integration
-- Basic multi-agent framework
 
 ## 🙏 Acknowledgments
 

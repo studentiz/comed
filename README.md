@@ -420,24 +420,6 @@ pip install -r requirements-dev.txt
 
 This project is licensed under the BSD-2-Clause License. See [LICENSE](LICENSE) file for details.
 
-## 🚀 Version History
-
-### v2.1.1 (Current)
-- Package optimization and documentation updates
-- Improved error handling and logging
-- Enhanced configuration management
-
-### v2.1.0
-- Multi-agent collaboration system
-- Advanced conflict resolution
-- Consensus building mechanisms
-- Enhanced agent communication
-
-### v2.0.1
-- Modular architecture
-- RAG and CoT integration
-- Basic multi-agent framework
-
 ## 🙏 Acknowledgments
 
 Thanks to the research community for valuable feedback and contributions. Special thanks to reviewers who helped improve the framework's modularity and evaluation capabilities.
