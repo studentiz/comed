@@ -1,7 +1,8 @@
-# CoMed: A Framework for Drug Co-Medication Risk Analysis
+# CoMed: A Comprehensive Framework for Drug Co-Medication Risk Analysis
 
-[![Python 3.12+](https://img.shields.io/badge/python-3.12+-blue.svg)](https://www.python.org/downloads/release/python-3120/)
-[![PyPI version](https://badge.fury.io/py/comed.svg?icon=si%3Apython)](https://badge.fury.io/py/comed)
+[![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
+[![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
+[![License: BSD-2-Clause](https://img.shields.io/badge/License-BSD--2--Clause-blue.svg)](https://opensource.org/licenses/BSD-2-Clause)
 
 ## ⚠️ **IMPORTANT DISCLAIMER**
 
@@ -18,232 +19,202 @@
 
 ## 🎯 Overview
 
-CoMed is a comprehensive framework for analyzing drug co-medication risks using a modular architecture that supports RAG (Retrieval-Augmented Generation), CoT (Chain-of-Thought reasoning), and **True Multi-Agent systems**. Version 2.1.0 introduces genuine multi-agent collaboration with advanced communication, negotiation, and collective decision-making capabilities.
+CoMed is a comprehensive framework for analyzing drug co-medication risks using advanced AI techniques including Retrieval-Augmented Generation (RAG), Chain-of-Thought (CoT) reasoning, and multi-agent collaboration. It automates the process of searching medical literature, analyzing drug interactions, and generating detailed risk assessment reports.
+
+### Why CoMed?
+
+- **Research Efficiency**: Automate literature review for drug interaction studies
+- **Comprehensive Analysis**: Combine multiple AI approaches for thorough risk assessment
+- **Reproducible Results**: Standardized methodology for consistent analysis
+- **Scalable Processing**: Handle multiple drug combinations efficiently
+- **Evidence-Based**: Ground analysis in peer-reviewed medical literature
 
 ## 🔧 Key Features
 
-### 1. Modular Architecture
-- **RAG Module** (`rag.py`): Independent literature retrieval system
-- **CoT Module** (`cot.py`): Chain-of-thought reasoning system  
-- **Multi-Agent Module** (`agents.py`): True agent-to-agent collaboration
+### 1. **Literature Retrieval & Analysis**
+- Automated PubMed search with intelligent query construction
+- Relevance filtering and ranking of medical literature
+- Statistical analysis of retrieved papers
+- Support for custom search parameters
 
-### 2. True Multi-Agent System (NEW in v2.1.0)
-- **Advanced Agent Communication**: Real-time message passing with priority levels and message types
-- **Multiple Collaboration Modes**: Sequential, Parallel, Consensus, Hierarchical, and Negotiation
-- **Conflict Resolution**: Automated conflict detection and resolution mechanisms
-- **Collective Decision Making**: Weighted consensus, expert-weighted, and confidence-weighted decisions
-- **Agent Specialization**: Enhanced expertise levels and domain-specific knowledge
-- **Negotiation Framework**: Multi-round negotiation with agreement checking
-- **Collaboration Analytics**: Detailed interaction tracking and consensus measurement
+### 2. **Advanced AI Reasoning**
+- Chain-of-Thought reasoning for step-by-step analysis
+- Multi-agent collaboration for comprehensive assessment
+- Conflict resolution and consensus building
+- Confidence-weighted decision making
+
+### 3. **Comprehensive Risk Assessment**
+- Multi-dimensional risk analysis (pharmacokinetic, pharmacodynamic, clinical)
+- Evidence-based risk scoring
+- Detailed interaction mechanism analysis
+- Clinical recommendation generation
+
+### 4. **Flexible Architecture**
+- Modular design for easy customization
+- Support for different LLM providers
+- Configurable analysis parameters
+- Extensible agent system
 
 ## 📦 Installation
 
+### Prerequisites
+- Python 3.8 or higher
+- OpenAI API key (or compatible LLM API)
+
+### Install from PyPI
 ```bash
 pip install comed
 ```
 
+### Install from Source
+```bash
+git clone https://github.com/studentiz/comed.git
+cd comed
+pip install -e .
+```
+
 ## 🚀 Quick Start
 
-### Basic Usage
+### Basic Setup
 
 ```python
 import os
 import comed
 
-# Set required environment variables
-os.environ["MODEL_NAME"] = "gpt-4o"
+# Configure your LLM API
+os.environ["MODEL_NAME"] = "gpt-4o"  # or "gpt-3.5-turbo", "qwen2.5-32b-instruct"
 os.environ["API_BASE"] = "https://api.openai.com/v1"
 os.environ["API_KEY"] = "your-api-key-here"
 
-# Initialize system
+# Initialize with drug list
 drugs = ["warfarin", "aspirin", "ibuprofen"]
 com = comed.CoMedData(drugs)
 
-# Run full analysis
+# Run complete analysis
 report_path = com.run_full_analysis(retmax=30, verbose=True)
 print(f"Report generated at: {report_path}")
 ```
 
-## 📚 Usage Examples
-
-### Example 1: Step-by-Step Analysis
+### Step-by-Step Analysis
 
 ```python
-import os
-import comed
-
-# Set API credentials
-os.environ["MODEL_NAME"] = "gpt-4o"
-os.environ["API_BASE"] = "https://api.openai.com/v1"
-os.environ["API_KEY"] = "your-api-key-here"
-
-# Create a CoMed instance
-drugs = ["warfarin", "aspirin", "penicillin"]
-com = comed.CoMedData(drugs)
-
-# Search PubMed for literature
+# 1. Search medical literature
 com.search(retmax=20, email="your.email@example.com")
 
-# Analyze which papers mention drug combinations
+# 2. Analyze drug associations
 com.analyze_associations()
 
-# Evaluate risks across multiple dimensions
+# 3. Assess risks
 com.analyze_risks()
 
-# Generate an HTML report
-com.generate_report("Anticoagulant_Report.html")
+# 4. Generate report
+com.generate_report("Drug_Interaction_Report.html")
 ```
 
-### Example 2: Method Chaining
+## 📚 Usage Examples
+
+### Example 1: Cardiovascular Drug Interactions
 
 ```python
 import os
 import comed
 
-# Set API credentials
+# Set up API credentials
 os.environ["MODEL_NAME"] = "gpt-4o"
 os.environ["API_BASE"] = "https://api.openai.com/v1"
 os.environ["API_KEY"] = "your-api-key-here"
 
-# Create a CoMed instance and run analysis pipeline with method chaining
-drugs = ["ibuprofen", "naproxen", "acetaminophen"]
-com = comed.CoMedData(drugs)
-com.search(retmax=30) \
+# Analyze cardiovascular drug combinations
+cardiovascular_drugs = ["warfarin", "aspirin", "clopidogrel", "metoprolol"]
+com = comed.CoMedData(cardiovascular_drugs)
+
+# Run analysis with method chaining
+com.search(retmax=50) \
    .analyze_associations() \
    .analyze_risks() \
-   .generate_report("NSAID_Interactions.html")
+   .generate_report("Cardiovascular_Interactions.html")
 ```
 
-### Example 3: Adding Drugs Incrementally
+### Example 2: Diabetes Medication Analysis
 
 ```python
-import os
-import comed
+# Analyze diabetes medication interactions
+diabetes_drugs = ["metformin", "insulin", "glipizide", "pioglitazone"]
+com = comed.CoMedData(diabetes_drugs)
 
-# Set API credentials
-os.environ["MODEL_NAME"] = "gpt-4o"
-os.environ["API_BASE"] = "https://api.openai.com/v1"
-os.environ["API_KEY"] = "your-api-key-here"
-
-# Start with a smaller set of drugs
-com = comed.CoMedData(["warfarin", "aspirin"])
+# Incremental analysis
 com.search(retmax=30)
+com.analyze_associations()
 
-# Add more drugs later
-com.add_drugs(["heparin", "clopidogrel"])
-
-# Only search for the new combinations
+# Add more drugs and continue analysis
+com.add_drugs(["sitagliptin", "canagliflozin"])
 com.search(retmax=30)
-
-# Complete the analysis pipeline
-com.analyze_associations() \
-   .analyze_risks() \
-   .generate_report("Expanded_Drug_Report.html")
+com.analyze_risks()
+com.generate_report("Diabetes_Medication_Analysis.html")
 ```
 
-
-### Example 5: Enhanced Multi-Agent System (NEW in v2.1.0)
+### Example 3: Multi-Agent Collaboration
 
 ```python
 from comed import MultiAgentSystem
 
-# Initialize enhanced multi-agent system
+# Initialize multi-agent system
 agent_system = MultiAgentSystem(
     model_name="gpt-4o",
     api_key="your-key",
     api_base="https://api.openai.com/v1"
 )
 
-# Process drug combination with different collaboration modes
+# Analyze specific drug combination
 drug1, drug2 = "warfarin", "aspirin"
 abstract = "Literature abstract content..."
 
-# Consensus collaboration (default)
-consensus_result = agent_system.process_drug_combination(
+# Use consensus collaboration
+result = agent_system.process_drug_combination(
     drug1, drug2, abstract, 
     collaboration_mode="consensus"
 )
 
-# Negotiation collaboration
-negotiation_result = agent_system.process_drug_combination(
-    drug1, drug2, abstract, 
-    collaboration_mode="negotiation"
-)
-
-# Hierarchical collaboration
-hierarchical_result = agent_system.process_drug_combination(
-    drug1, drug2, abstract, 
-    collaboration_mode="hierarchical"
-)
-
-print("Enhanced Multi-Agent Analysis Results:")
-print(f"Consensus Level: {consensus_result['consensus_level']}")
-print(f"Agent Interactions: {consensus_result['agent_interactions']}")
-print(f"Collaboration Summary: {consensus_result['collaboration_summary']}")
-
-# Get detailed agent statistics
-stats = agent_system.get_agent_stats()
-print(f"Agent Statistics: {stats}")
+print(f"Risk Assessment: {result['risk_analysis']}")
+print(f"Safety Recommendation: {result['safety_assessment']}")
+print(f"Clinical Guidance: {result['clinical_recommendation']}")
 ```
 
-### Example 6: Advanced Multi-Agent Collaboration
+### Example 4: Batch Processing
 
 ```python
-# Test different collaboration modes
-collaboration_modes = ["sequential", "parallel", "consensus", "hierarchical", "negotiation"]
+# Process multiple drug combinations
+drug_combinations = [
+    ["warfarin", "aspirin"],
+    ["metformin", "lisinopril"],
+    ["atorvastatin", "amlodipine"]
+]
 
-for mode in collaboration_modes:
-    print(f"\n=== Testing {mode.upper()} Collaboration ===")
-    
-    result = agent_system.process_drug_combination(
-        "metformin", "lisinopril", abstract, 
-        collaboration_mode=mode
-    )
-    
-    print(f"Collaboration Mode: {mode}")
-    print(f"Consensus Level: {result.get('consensus_level', 'N/A')}")
-    print(f"Agent Interactions: {len(result.get('agent_interactions', {}))}")
-    
-    # Show agent conversation history
-    for agent_name, agent in agent_system.agents.items():
-        print(f"{agent.name} conversations: {len(agent.conversation_history)}")
+for i, drugs in enumerate(drug_combinations):
+    com = comed.CoMedData(drugs)
+    com.search(retmax=20)
+    com.analyze_associations()
+    com.analyze_risks()
+    com.generate_report(f"Combination_{i+1}_Report.html")
 ```
 
-## 🎮 Demo Examples
+## 🎮 Demo Scripts
 
-Run the comprehensive demo to see CoMed in action:
+Run the included demo scripts to see CoMed in action:
 
 ```bash
-# Run basic demo
+# Basic functionality demo
 python examples/basic_demo.py
 
-# Run quick start demo
+# Quick start tutorial
 python examples/quick_start.py
-```
 
-### Using Existing Data
-
-If you already have association data (e.g., `ddc_papers_association_pd.csv`), you can skip the search and analysis steps:
-
-```bash
-# Load existing data and run multi-agent analysis
-python examples/load_and_analyze.py
-
-# Simple multi-agent test
+# Multi-agent system demo
 python examples/simple_agent_test.py
 
-# Direct multi-agent test
-python examples/direct_agent_test.py
+# Load existing data and analyze
+python examples/load_and_analyze.py
 ```
-
-The demo includes:
-- Basic usage examples
-- Step-by-step analysis
-- Method chaining
-- Incremental drug addition
-- Data persistence
-- Multi-agent collaboration
-- Direct multi-agent testing with existing data
 
 ## 🔧 Advanced Configuration
 
@@ -254,186 +225,228 @@ export MODEL_NAME="gpt-4o"
 export API_BASE="https://api.openai.com/v1"
 export API_KEY="your-api-key"
 export LOG_DIR="logs"
+export OLD_OPENAI_API="No"  # Set to "Yes" for older OpenAI API format
 ```
 
-### Custom Configuration
+### Custom LLM Configuration
 
 ```python
-# Configure LLM
-com = comed.CoMedData(["warfarin", "aspirin"])
+# Configure different LLM providers
+com = comed.CoMedData(["drug1", "drug2"])
 com.set_config({
-    'model_name': 'gpt-4o',
-    'api_base': 'https://api.openai.com/v1',
-    'api_key': 'your-key'
+    'model_name': 'qwen2.5-32b-instruct',
+    'api_base': 'https://your-llm-api.com/v1',
+    'api_key': 'your-api-key'
 })
 ```
 
+### Analysis Parameters
 
-## 🏗️ Architecture Design
+```python
+# Customize search parameters
+com.search(
+    retmax=50,  # Number of papers to retrieve
+    email="your.email@example.com",  # Required for PubMed
+    date_range=("2020/01/01", "2024/12/31")  # Optional date filter
+)
 
-### Enhanced Modular Design (v2.1.0)
+# Customize analysis depth
+com.analyze_associations(
+    confidence_threshold=0.7,  # Minimum confidence for associations
+    include_mechanisms=True    # Include interaction mechanisms
+)
+```
+
+## 🏗️ Architecture
+
+### Core Components
 
 ```
-CoMed v2.1.0 - True Multi-Agent System
+CoMed Framework
 ├── RAG Module (rag.py)
-│   ├── Literature retrieval
-│   ├── Relevance filtering
-│   └── Statistics
+│   ├── Literature retrieval from PubMed
+│   ├── Relevance scoring and filtering
+│   └── Statistical analysis
 ├── CoT Module (cot.py)
 │   ├── Chain-of-thought reasoning
 │   ├── Step-by-step analysis
-│   └── Result formatting
-├── Enhanced Multi-Agent Module (agents.py)
-│   ├── Base Agent Class (Enhanced)
-│   │   ├── Advanced communication protocols
-│   │   ├── Message types and priorities
-│   │   ├── Knowledge base management
-│   │   └── Expertise level tracking
-│   ├── Specialized Agents
-│   │   ├── RiskAnalysisAgent (Enhanced)
-│   │   ├── SafetyAgent (Enhanced)
-│   │   └── ClinicalAgent (Enhanced)
-│   ├── Collaboration Strategies
-│   │   ├── Sequential collaboration
-│   │   ├── Parallel collaboration
-│   │   ├── Consensus building
-│   │   ├── Hierarchical decision-making
-│   │   └── Negotiation framework
-│   ├── Conflict Resolution System
-│   │   ├── Conflict detection
-│   │   ├── Resolution strategies
-│   │   └── Consensus building
-│   └── Collective Decision Making
-│       ├── Weighted consensus
-│       ├── Expert-weighted decisions
-│       └── Confidence-weighted decisions
+│   └── Result interpretation
+├── Multi-Agent Module (agents.py)
+│   ├── RiskAnalysisAgent
+│   ├── SafetyAgent
+│   ├── ClinicalAgent
+│   └── Collaboration protocols
 └── Core Module (core.py)
     ├── Component integration
     ├── Configuration management
     └── Result aggregation
 ```
 
-### Enhanced Data Flow (v2.1.0)
+### Data Flow
 
 ```
-Drug Combinations → RAG Retrieval → CoT Reasoning → Enhanced Multi-Agent Collaboration → Result Integration → Report Generation
-    ↓                 ↓              ↓                        ↓                              ↓
-Literature Database  Association Analysis  Agent Communication & Negotiation  Collective Decision Making  Final Report
-                                                      ↓
-                                              ┌─────────────────┐
-                                              │ Collaboration   │
-                                              │ Modes:          │
-                                              │ • Sequential    │
-                                              │ • Parallel      │
-                                              │ • Consensus     │
-                                              │ • Hierarchical  │
-                                              │ • Negotiation   │
-                                              └─────────────────┘
+Drug Combinations → Literature Search → Association Analysis → Risk Assessment → Report Generation
+        ↓                    ↓                    ↓                    ↓
+   Input Validation    PubMed Retrieval    CoT Reasoning    Multi-Agent Analysis
+        ↓                    ↓                    ↓                    ↓
+   Query Construction   Relevance Filtering   Evidence Analysis   Consensus Building
+        ↓                    ↓                    ↓                    ↓
+   Search Execution    Statistical Analysis   Risk Scoring      Final Report
 ```
+
+## 📊 Performance & Evaluation
+
+### Benchmarking
+
+```python
+from comed import CoMedBenchmark
+
+# Initialize benchmark system
+benchmark = CoMedBenchmark(
+    model_name="gpt-4o",
+    api_key="your-key",
+    api_base="https://api.openai.com/v1"
+)
+
+# Test multiple drug combinations
+drug_combinations = [
+    ["warfarin", "aspirin"],
+    ["metformin", "lisinopril"],
+    ["atorvastatin", "amlodipine"]
+]
+
+# Run performance evaluation
+results = benchmark.run_ablation_study(
+    drug_combinations, 
+    retmax=20, 
+    verbose=True
+)
+
+# Save benchmark results
+results_file = benchmark.save_benchmark_results(results)
+```
+
+### Metrics
+
+- **Retrieval Quality**: Precision, recall, and relevance scores
+- **Analysis Accuracy**: Agreement with expert annotations
+- **Processing Speed**: Time per drug combination
+- **Consensus Quality**: Multi-agent agreement levels
 
 ## 📚 API Reference
 
 ### Core Classes
 
 - `CoMedData`: Main analysis class
-- `RAGSystem`: RAG retrieval system
-- `CoTReasoner`: CoT reasoning system
-- `MultiAgentSystem`: Enhanced multi-agent system with true collaboration
-- `Agent`: Enhanced base agent class with communication capabilities
-- `RiskAnalysisAgent`: Specialized risk analysis agent
-- `SafetyAgent`: Specialized safety assessment agent
-- `ClinicalAgent`: Specialized clinical decision agent
-- `ConflictResolver`: Conflict resolution system
-- `CollectiveDecisionMaker`: Collective decision making system
+- `RAGSystem`: Literature retrieval system
+- `CoTReasoner`: Chain-of-thought reasoning
+- `MultiAgentSystem`: Multi-agent collaboration
+- `CoMedBenchmark`: Performance evaluation
 
 ### Key Methods
 
-#### Core Analysis Methods
-- `run_full_analysis()`: Run complete analysis pipeline
-- `set_config()`: Set configuration
+#### Analysis Methods
+- `search(retmax, email, date_range)`: Search medical literature
+- `analyze_associations(confidence_threshold)`: Analyze drug associations
+- `analyze_risks(risk_dimensions)`: Assess interaction risks
+- `generate_report(filename)`: Generate HTML report
 
-#### Enhanced Multi-Agent Methods (NEW in v2.1.0)
-- `process_drug_combination()`: Process with multiple collaboration modes
-- `batch_process()`: Enhanced batch processing with collaboration modes
-- `get_agent_stats()`: Get detailed agent statistics and interactions
-- `send_message()`: Send messages between agents
-- `receive_message()`: Receive and process agent messages
-- `express_opinion()`: Express agent opinions for consensus building
-- `_sequential_collaboration()`: Sequential agent collaboration
-- `_parallel_collaboration()`: Parallel agent collaboration
-- `_consensus_collaboration()`: Consensus-based collaboration
-- `_hierarchical_collaboration()`: Hierarchical decision making
-- `_negotiation_collaboration()`: Multi-round negotiation
+#### Multi-Agent Methods
+- `process_drug_combination(drug1, drug2, abstract, mode)`: Process with agents
+- `get_agent_stats()`: Get agent performance statistics
+- `set_collaboration_mode(mode)`: Set collaboration strategy
 
-### Environment Variables
-
-- `MODEL_NAME`: Name of the LLM to use (e.g., "gpt-4o", "qwen2.5-32b-instruct")
-- `API_BASE`: Base URL for the LLM API
-- `API_KEY`: API key for LLM access
-- `LOG_DIR`: Directory to store log files
-- `OLD_OPENAI_API`: Whether to use the old OpenAI API format ("Yes" or "No")
+#### Configuration Methods
+- `set_config(config_dict)`: Set system configuration
+- `add_drugs(drug_list)`: Add drugs to analysis
+- `save_data(filename)`: Save analysis data
+- `load_data(filename)`: Load existing data
 
 ## 🛠️ Development
 
-### Adding New Components
+### Adding Custom Agents
 
 ```python
 from comed.agents import Agent
 
-class CustomAgent(Agent):
+class CustomAnalysisAgent(Agent):
     def __init__(self, model_name, api_key, api_base):
-        super().__init__("CustomAgent", "Custom Analysis", model_name, api_key, api_base)
+        super().__init__(
+            name="CustomAnalysisAgent",
+            description="Custom drug analysis",
+            model_name=model_name,
+            api_key=api_key,
+            api_base=api_base
+        )
     
     def _execute_task(self, input_data):
         # Implement custom analysis logic
         return {"custom_result": "Analysis result"}
 ```
 
+### Extending Analysis Modules
+
+```python
+from comed.rag import RAGSystem
+
+class CustomRAGSystem(RAGSystem):
+    def __init__(self, *args, **kwargs):
+        super().__init__(*args, **kwargs)
+    
+    def custom_search_method(self, query):
+        # Implement custom search logic
+        pass
+```
 
 ## 🤝 Contributing
 
 We welcome contributions in various forms:
 
 1. **Code Contributions**: New features, bug fixes, performance optimizations
-2. **Documentation Improvements**: Better examples, tutorials, API documentation
-3. **Test Cases**: Unit tests, integration tests, benchmark tests
-4. **Performance Optimization**: New evaluation metrics, test scenarios
+2. **Documentation**: Better examples, tutorials, API documentation
+3. **Testing**: Unit tests, integration tests, benchmark tests
+4. **Research**: New evaluation metrics, test scenarios, ablation studies
+
+### Development Setup
+
+```bash
+git clone https://github.com/studentiz/comed.git
+cd comed
+pip install -e .
+pip install -r requirements-dev.txt
+```
 
 ## 📄 License
 
-This project is licensed under the BSD License. See LICENSE file for details.
+This project is licensed under the BSD-2-Clause License. See [LICENSE](LICENSE) file for details.
 
 ## 🚀 Version History
 
-### v2.1.0 (Latest) - True Multi-Agent Collaboration
-- **BREAKING CHANGES**: Enhanced multi-agent system with genuine collaboration
-- **NEW FEATURES**:
-  - Advanced agent-to-agent communication with message types and priorities
-  - Multiple collaboration modes (Sequential, Parallel, Consensus, Hierarchical, Negotiation)
-  - Conflict resolution system with multiple strategies
-  - Collective decision making with weighted consensus
-  - Enhanced agent specialization with expertise levels
-  - Multi-round negotiation framework
-  - Detailed collaboration analytics and interaction tracking
-- **IMPROVEMENTS**:
-  - Complete rewrite of agent communication protocols
-  - Enhanced SafetyAgent and ClinicalAgent implementations
-  - Advanced collaboration workflow management
-  - Improved result integration with consensus measurement
+### v2.1.1 (Current)
+- Package optimization and documentation updates
+- Improved error handling and logging
+- Enhanced configuration management
 
-### v2.0.1 - Modular Architecture
-- Modular component separation
+### v2.1.0
+- Multi-agent collaboration system
+- Advanced conflict resolution
+- Consensus building mechanisms
+- Enhanced agent communication
+
+### v2.0.1
+- Modular architecture
+- RAG and CoT integration
 - Basic multi-agent framework
 
 ## 🙏 Acknowledgments
 
-Thanks to the reviewers for their valuable feedback, which helped us build a more modular, evaluable framework. Special thanks for the feedback that led to the development of true multi-agent collaboration in v2.1.0.
+Thanks to the research community for valuable feedback and contributions. Special thanks to reviewers who helped improve the framework's modularity and evaluation capabilities.
 
 ## 📞 Contact
 
-- Project Homepage: https://github.com/studentiz/comed
-- Issue Reports: Please use GitHub Issues
-- Email: studentiz@live.com
+- **Project Homepage**: https://github.com/studentiz/comed
+- **Issue Reports**: Please use [GitHub Issues](https://github.com/studentiz/comed/issues)
+- **Email**: studentiz@live.com
 
 ---
 
