@@ -2,7 +2,6 @@ LICENSE
 MANIFEST.in
 README.md
 setup.py
-comed/README.md
 comed/__init__.py
 comed/agents.py
 comed/analysis.py
