@@ -1,0 +1,8 @@
+include README.md
+include LICENSE
+include comed/README.md
+recursive-include examples *.py
+recursive-include logo *.png
+recursive-exclude logs *.log
+recursive-exclude comed/__pycache__ *.pyc
+recursive-exclude comed/__pycache__ *.pyo

@@ -5,7 +5,7 @@
 
 ## 🎯 Overview
 
-CoMed is a comprehensive framework for analyzing drug co-medication risks using a modular architecture that supports RAG (Retrieval-Augmented Generation), CoT (Chain-of-Thought reasoning), and Multi-Agent systems. This version addresses reviewer feedback by providing clear component separation, ablation study support, and true multi-agent collaboration.
+CoMed is a comprehensive framework for analyzing drug co-medication risks using a modular architecture that supports RAG (Retrieval-Augmented Generation), CoT (Chain-of-Thought reasoning), and Multi-Agent systems. This version addresses reviewer feedback by providing clear component separation and true multi-agent collaboration.
 
 ## 🔧 Key Features
 
@@ -13,14 +13,8 @@ CoMed is a comprehensive framework for analyzing drug co-medication risks using 
 - **RAG Module** (`rag.py`): Independent literature retrieval system
 - **CoT Module** (`cot.py`): Chain-of-thought reasoning system  
 - **Multi-Agent Module** (`agents.py`): True agent-to-agent collaboration
-- **Benchmark Module** (`benchmark.py`): Ablation studies and performance evaluation
 
-### 2. Ablation Study Support
-- Independent testing of each component's contribution
-- Detailed performance comparison and analysis
-- Automatic generation of ablation study reports
-
-### 3. True Multi-Agent System
+### 2. True Multi-Agent System
 - Agent-to-agent communication and collaboration
 - Specialized agents for different roles
 - Agent state management and conversation tracking
@@ -130,34 +124,7 @@ com.analyze_associations() \
    .generate_report("Expanded_Drug_Report.html")
 ```
 
-### Example 4: Ablation Study
-
-```python
-import comed
-
-# Initialize system
-drugs = ["metformin", "lisinopril", "atorvastatin"]
-com = comed.CoMedData(drugs)
-
-# Run ablation study
-ablation_results = com.run_ablation_study(retmax=20, verbose=True)
-
-# View results
-print("Ablation Study Results:")
-for stage, result in ablation_results["ablation_results"].items():
-    if stage != "ablation_report":
-        print(f"{stage}: {result['time']:.1f}s, Papers: {result['stats']['total_papers']}")
-
-# Component comparison
-comparison_results = com.compare_components(retmax=20, verbose=True)
-report = comparison_results["comparison_report"]
-
-print("\nPerformance Comparison:")
-for component, perf in report["performance_summary"].items():
-    print(f"{component}: {perf['time']:.1f}s, Efficiency: {perf['efficiency']:.2f}")
-```
-
-### Example 5: Multi-Agent System
+### Example 4: Multi-Agent System
 
 ```python
 from comed import MultiAgentSystem
@@ -190,9 +157,6 @@ Run the comprehensive demo to see CoMed in action:
 # Run basic demo
 python examples/basic_demo.py
 
-# Run ablation study demo
-python examples/ablation_study_example.py
-
 # Run quick start demo
 python examples/quick_start.py
 ```
@@ -218,7 +182,6 @@ The demo includes:
 - Method chaining
 - Incremental drug addition
 - Data persistence
-- Ablation studies
 - Multi-agent collaboration
 - Direct multi-agent testing with existing data
 
@@ -245,43 +208,7 @@ com.set_config({
 })
 ```
 
-## 📈 Performance Evaluation
 
-### Ablation Study Metrics
-
-- **Time Efficiency**: Processing time for each component
-- **Quality Metrics**: Positive association rate, accuracy
-- **Component Contributions**: Independent contribution of each component
-- **Efficiency Analysis**: Balance between processing speed and quality
-
-### Benchmark Testing
-
-```python
-from comed import CoMedBenchmark
-
-# Initialize benchmark system
-benchmark = CoMedBenchmark(
-    model_name="gpt-4o",
-    api_key="your-key",
-    api_base="https://api.openai.com/v1"
-)
-
-# Test drug combinations
-drug_combinations = [
-    ["warfarin", "aspirin"],
-    ["metformin", "lisinopril"],
-    ["atorvastatin", "amlodipine"]
-]
-
-# Run ablation study
-ablation_results = benchmark.run_ablation_study(
-    drug_combinations, retmax=20, verbose=True
-)
-
-# Save results
-results_file = benchmark.save_benchmark_results(ablation_results)
-print(f"Benchmark results saved to: {results_file}")
-```
 
 ## 🏗️ Architecture Design
 
@@ -301,10 +228,6 @@ CoMed v2.0
 │   ├── Base agent class
 │   ├── Specialized agents
 │   └── Agent collaboration
-├── Benchmark Module (benchmark.py)
-│   ├── Ablation studies
-│   ├── Performance evaluation
-│   └── Report generation
 └── Core Module (core.py)
     ├── Component integration
     ├── Configuration management
@@ -327,14 +250,9 @@ Literature Database  Association Analysis  Risk Assessment  Clinical Recommendat
 - `RAGSystem`: RAG retrieval system
 - `CoTReasoner`: CoT reasoning system
 - `MultiAgentSystem`: Multi-agent system
-- `CoMedBenchmark`: Benchmark testing system
-
 ### Key Methods
 
 - `run_full_analysis()`: Run complete analysis pipeline
-- `run_ablation_study()`: Run ablation study
-- `run_component_test()`: Test individual component
-- `compare_components()`: Compare component performance
 - `set_config()`: Set configuration
 
 ### Environment Variables
@@ -361,15 +279,6 @@ class CustomAgent(Agent):
         return {"custom_result": "Analysis result"}
 ```
 
-### Custom Ablation Studies
-
-```python
-# Create custom benchmark test
-class CustomBenchmark(CoMedBenchmark):
-    def run_custom_ablation(self, drug_combinations):
-        # Implement custom ablation study logic
-        pass
-```
 
 ## 🤝 Contributing
 
@@ -378,7 +287,7 @@ We welcome contributions in various forms:
 1. **Code Contributions**: New features, bug fixes, performance optimizations
 2. **Documentation Improvements**: Better examples, tutorials, API documentation
 3. **Test Cases**: Unit tests, integration tests, benchmark tests
-4. **Ablation Studies**: New evaluation metrics, test scenarios
+4. **Performance Optimization**: New evaluation metrics, test scenarios
 
 ## 📄 License
 

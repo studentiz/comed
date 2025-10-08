@@ -2,7 +2,7 @@ from setuptools import setup, find_packages
 
 setup(
     name="comed",
-    version="2.0.1",
+    version="2.1.1",
     packages=find_packages(),
     install_requires=[
         "pandas>=2.2.2",

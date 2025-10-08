@@ -210,45 +210,6 @@ def demo_data_persistence():
         print(f"❌ Data persistence demo failed: {e}")
         return None
 
-def demo_ablation_study():
-    """Demo ablation study functionality"""
-    print("\n" + "="*80)
-    print("🔬 Ablation Study Demo")
-    print("="*80)
-    
-    # Initialize CoMed
-    drugs = ["warfarin", "aspirin"]
-    com = comed.CoMedData(drugs)
-    
-    print(f"Running ablation study for: {', '.join(drugs)}")
-    
-    try:
-        # Run ablation study
-        ablation_results = com.run_ablation_study(retmax=3, verbose=True)
-        
-        print("\n📊 Ablation Study Results:")
-        if "ablation_results" in ablation_results:
-            for stage, result in ablation_results["ablation_results"].items():
-                if stage != "ablation_report":
-                    print(f"  • {stage}: {result['time']:.1f}s, Papers: {result['stats']['total_papers']}")
-        
-        # Run component comparison
-        print("\n📈 Component Comparison:")
-        comparison_results = com.compare_components(retmax=3, verbose=True)
-        
-        if "comparison_report" in comparison_results:
-            report = comparison_results["comparison_report"]
-            for component, perf in report.get("performance_summary", {}).items():
-                print(f"  • {component.upper()}: {perf['time']:.1f}s, Efficiency: {perf['efficiency']:.2f}")
-        
-        print(f"\n✅ Ablation study completed!")
-        print(f"📊 Results file: {ablation_results.get('results_file', 'N/A')}")
-        
-        return ablation_results
-        
-    except Exception as e:
-        print(f"❌ Ablation study failed: {e}")
-        return None
 
 def main():
     """Main demo function"""
@@ -268,8 +229,7 @@ def main():
         ("Step-by-Step Analysis", demo_step_by_step),
         ("Method Chaining", demo_method_chaining),
         ("Incremental Drug Addition", demo_incremental_drugs),
-        ("Data Persistence", demo_data_persistence),
-        ("Ablation Study", demo_ablation_study)
+        ("Data Persistence", demo_data_persistence)
     ]
     
     results = {}

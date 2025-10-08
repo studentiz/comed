@@ -65,8 +65,6 @@ def main():
     
     print("\n🎯 Next steps:")
     print("   • Check the generated HTML report")
-    print("   • Try running ablation studies: com.run_ablation_study()")
-    print("   • Explore component testing: com.run_component_test('rag')")
     print("   • Run the full demo: python examples/basic_demo.py")
 
 if __name__ == "__main__":
