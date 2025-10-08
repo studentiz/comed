@@ -1,26 +1,37 @@
 # Development dependencies for CoMed
 # Install with: pip install -r requirements-dev.txt
 
-# Testing framework
-pytest>=7.0.0
+# Core development dependencies (already in setup.py)
+# pandas>=2.2.2
+# numpy>=1.26.0
+# biopython>=1.85
+# tqdm>=4.67.1
+# openai>=1.65.1
+# requests>=2.32.3
+
+# Basic testing (minimal setup)
+pytest>=6.0.0
 pytest-cov>=4.0.0
-pytest-mock>=3.10.0
 
-# Code quality and formatting
-black>=23.0.0
-flake8>=6.0.0
-isort>=5.12.0
-mypy>=1.0.0
+# Code formatting and quality
+black>=22.0.0
+flake8>=5.0.0
+isort>=5.10.0
 
-# Documentation
-sphinx>=6.0.0
-sphinx-rtd-theme>=1.2.0
-
-# Development tools
-pre-commit>=3.0.0
+# Development and debugging
 jupyter>=1.0.0
 ipython>=8.0.0
+matplotlib>=3.5.0  # For data visualization in examples
+seaborn>=0.11.0    # For statistical plots
 
-# Additional testing utilities
-coverage>=7.0.0
-tox>=4.0.0
+# Performance and memory profiling
+memory-profiler>=0.60.0
+line-profiler>=4.0.0
+
+# Documentation (optional, for future use)
+# sphinx>=4.0.0
+# sphinx-rtd-theme>=1.0.0
+
+# Additional utilities for CoMed development
+tqdm>=4.64.0       # Progress bars (already in main deps, but useful for dev)
+requests-mock>=1.10.0  # For mocking API calls in tests

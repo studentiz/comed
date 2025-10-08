@@ -410,10 +410,20 @@ We welcome contributions in various forms:
 ### Development Setup
 
 ```bash
+# Clone the repository
 git clone https://github.com/studentiz/comed.git
 cd comed
+
+# Install in development mode
 pip install -e .
+
+# Install development dependencies (optional)
 pip install -r requirements-dev.txt
+
+# Set up environment variables
+export MODEL_NAME="gpt-4o"
+export API_BASE="https://api.openai.com/v1"
+export API_KEY="your-api-key-here"
 ```
 
 ## 📄 License
