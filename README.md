@@ -296,42 +296,19 @@ Drug Combinations → Literature Search → Association Analysis → Risk Assess
 
 ## 📊 Performance & Evaluation
 
-### Benchmarking
+CoMed provides built-in performance monitoring and evaluation capabilities:
 
 ```python
-from comed import CoMedBenchmark
+# Monitor analysis performance
+com = comed.CoMedData(["warfarin", "aspirin"])
+com.search(retmax=20)
 
-# Initialize benchmark system
-benchmark = CoMedBenchmark(
-    model_name="gpt-4o",
-    api_key="your-key",
-    api_base="https://api.openai.com/v1"
-)
-
-# Test multiple drug combinations
-drug_combinations = [
-    ["warfarin", "aspirin"],
-    ["metformin", "lisinopril"],
-    ["atorvastatin", "amlodipine"]
-]
-
-# Run performance evaluation
-results = benchmark.run_ablation_study(
-    drug_combinations, 
-    retmax=20, 
-    verbose=True
-)
-
-# Save benchmark results
-results_file = benchmark.save_benchmark_results(results)
+# Get performance statistics
+stats = com.get_performance_stats()
+print(f"Papers retrieved: {stats['papers_retrieved']}")
+print(f"Analysis time: {stats['analysis_time']:.2f}s")
+print(f"Success rate: {stats['success_rate']:.2%}")
 ```
-
-### Metrics
-
-- **Retrieval Quality**: Precision, recall, and relevance scores
-- **Analysis Accuracy**: Agreement with expert annotations
-- **Processing Speed**: Time per drug combination
-- **Consensus Quality**: Multi-agent agreement levels
 
 ## 📚 API Reference
 
@@ -341,7 +318,6 @@ results_file = benchmark.save_benchmark_results(results)
 - `RAGSystem`: Literature retrieval system
 - `CoTReasoner`: Chain-of-thought reasoning
 - `MultiAgentSystem`: Multi-agent collaboration
-- `CoMedBenchmark`: Performance evaluation
 
 ### Key Methods
 
@@ -405,7 +381,7 @@ We welcome contributions in various forms:
 1. **Code Contributions**: New features, bug fixes, performance optimizations
 2. **Documentation**: Better examples, tutorials, API documentation
 3. **Testing**: Unit tests, integration tests, benchmark tests
-4. **Research**: New evaluation metrics, test scenarios, ablation studies
+4. **Research**: New evaluation metrics, test scenarios, and performance studies
 
 ### Development Setup
 
