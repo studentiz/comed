@@ -414,7 +414,7 @@ Thanks to the research community for valuable feedback and contributions. Specia
 
 - **Project Homepage**: https://github.com/studentiz/comed
 - **Issue Reports**: Please use [GitHub Issues](https://github.com/studentiz/comed/issues)
-- **Email**: studentiz@live.com
+- **Email**: huanhu@fzu.edu.cn
 
 ---
 
