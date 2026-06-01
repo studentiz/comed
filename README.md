@@ -1,4 +1,5 @@
-# CoMed: A Comprehensive Framework for Drug Co-Medication Risk Analysis
+# Benchmarking Large Language Models for Drug Combination Alerts: Achieving Expert-Level Reliability via Knowledge Grounding and Contextual Reasoning
+* doi: 10.1021/acs.jmedchem.5c03511
 
 [![Python 3.8+](https://img.shields.io/badge/python-3.8+-blue.svg)](https://www.python.org/downloads/)
 [![PyPI version](https://badge.fury.io/py/comed.svg)](https://badge.fury.io/py/comed)
